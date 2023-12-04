@@ -1,4 +1,4 @@
-import { initDB, addTask, getAllTasks } from '../pdmfinal/db';
+import { initDB, addTask, getAllTasks } from './db';
 
 document.addEventListener('DOMContentLoaded', () => {
   const taskInput = document.getElementById('taskInput');
