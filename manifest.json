@@ -1,0 +1,18 @@
+{
+    "name": "Gerenciador de Tarefas",
+    "short_name": "Tarefas",
+    "description": "Um simples gerenciador de tarefas",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "icons": [
+      {
+        "src": "icobn.png",
+        "sizes": "512x512   ",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+  }
+  

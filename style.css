@@ -1,0 +1,93 @@
+
+body {
+  background-color: #f1debd;
+  margin: 0;
+  font-family: 'Arimo', sans-serif;
+  padding: 0;
+}
+
+div {
+  max-width: 30vh;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #717c7c;
+  
+  border-radius: 5px;
+  display: grid;
+ 
+}
+
+input[type="file"] {
+  display: none; /* Oculta o input padrão */
+  
+}
+
+.custom-file-input {
+  display: flex;
+  margin-left: 4vh;
+  padding: 8px 12px;
+  width: 19vh;
+  margin-left: 4vh;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #465050;
+  border-radius: 5px;
+  cursor: pointer;
+ transition:  background-color 0.8s ease;
+}
+
+.custom-file-input:hover {
+  
+  
+  background: linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(121,103,9,1) 0%, rgba(0,236,255,1) 100%);
+}
+
+label {
+  color: #fff;
+  margin-left: 4vh;
+  display: block;
+}
+
+input, textarea, button {
+  background-color: rgb(209, 209, 209);
+  width: 20vh; 
+  padding: 8px;
+  margin-left: 3.5vh;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px; 
+}
+
+button {
+  margin-top: 10px;
+  margin-left: 4vh;
+  cursor: pointer;
+}
+
+ul {
+  color: #fff;
+  list-style-type: none;
+  padding: 0;
+}
+
+#photoInput{
+ border-radius: 10px;
+}
+
+li {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1{
+  font-size: 2vh;
+  color: #fff;
+  margin-left: 3.5vh;
+}
+
