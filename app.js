@@ -1,3 +1,5 @@
+// script.js
+
 import { initDB, addTask, getAllTasks } from './db';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,9 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
             photo: taskPhoto,
             location: {
               latitude: position.coords.latitude,
-              longitude: position.coords.longitude
+              longitude: position.coords.longitude,
             },
-            timestamp: new Date().toLocaleString()
+            timestamp: new Date().toLocaleString(),
           };
 
           addTask(task);
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: taskDescription,
             date: taskDate,
             photo: taskPhoto,
-            timestamp: new Date().toLocaleString()
+            timestamp: new Date().toLocaleString(),
           };
 
           addTask(taskWithoutLocation);
@@ -73,11 +75,26 @@ document.addEventListener('DOMContentLoaded', () => {
         <strong>${task.title}</strong><br>
         Descrição: ${task.description}<br>
         Data: ${task.date}<br>
-        Localização: ${task.location ? `Lat: ${task.location.latitude}, Lon: ${task.location.longitude}` : 'N/A'}<br>
+        Localização: ${task.location ? renderMap(task.location) : 'N/A'}<br>
         <img src="${task.photo ? URL.createObjectURL(task.photo) : ''}" alt="Task Photo" width="100">
       `;
       taskList.appendChild(li);
     });
+  }
+
+  // Função para renderizar o mapa usando Leaflet
+  function renderMap(location) {
+    const mapId = `map-${Math.random().toString(36).substr(2, 9)}`;
+    return `<div id="${mapId}" class="leaflet-map"></div>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const map = L.map('${mapId}').setView([${location.latitude}, ${location.longitude}], 15);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+          }).addTo(map);
+          L.marker([${location.latitude}, ${location.longitude}]).addTo(map);
+        });
+      </script>`;
   }
 
   // Initialize the DB
