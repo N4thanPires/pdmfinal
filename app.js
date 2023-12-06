@@ -75,26 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
         <strong>${task.title}</strong><br>
         Descrição: ${task.description}<br>
         Data: ${task.date}<br>
-        Localização: ${task.location ? renderMap(task.location) : 'N/A'}<br>
+        Localização: ${task.location ? `<div class="leaflet-map" id="map-${task.timestamp}"></div>` : 'N/A'}<br>
         <img src="${task.photo ? URL.createObjectURL(task.photo) : ''}" alt="Task Photo" width="100">
       `;
       taskList.appendChild(li);
+
+      if (task.location) {
+        renderMap(`map-${task.timestamp}`, task.location);
+      }
     });
   }
 
   // Função para renderizar o mapa usando Leaflet
-  function renderMap(location) {
-    const mapId = `map-${Math.random().toString(36).substr(2, 9)}`;
-    return `<div id="${mapId}" class="leaflet-map"></div>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const map = L.map('${mapId}').setView([${location.latitude}, ${location.longitude}], 15);
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors',
-          }).addTo(map);
-          L.marker([${location.latitude}, ${location.longitude}]).addTo(map);
-        });
-      </script>`;
+  function renderMap(mapId, location) {
+    const map = L.map(mapId).setView([location.latitude, location.longitude], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+    }).addTo(map);
+    L.marker([location.latitude, location.longitude]).addTo(map);
   }
 
   // Initialize the DB

@@ -1,10 +1,42 @@
 
 body {
-  background-color: #f1debd;
+  background-color: #545353;
   margin: 0;
   font-family: 'Arimo', sans-serif;
   padding: 0;
 }
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background-color: #ba4242;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+}
+.leaflet-control,
+.leaflet-top,
+.leaflet-bottom,
+.leaflet-left,
+.leaflet-right {
+  background-color: transparent;
+  border: none;
+
+}
+.leaflet-control-zoom {
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom {
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
 
 div {
   max-width: 30vh;
